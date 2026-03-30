@@ -1,0 +1,61 @@
+name: Build APK - WAKE UP
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Descargar el código
+      - name: Checkout código
+        uses: actions/checkout@v4
+
+      # 2. Instalar Node.js
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      # 3. Instalar dependencias
+      - name: Instalar dependencias npm
+        run: npm install
+
+      # 4. Configurar Java 17 (requerido por Android)
+      - name: Configurar Java 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      # 5. Sincronizar Capacitor con Android
+      - name: Sincronizar Capacitor
+        run: npx cap sync android
+
+      # 6. Dar permisos al gradle wrapper
+      - name: Permisos Gradle
+        run: chmod +x android/gradlew
+
+      # 7. Compilar APK debug
+      - name: Compilar APK
+        run: |
+          cd android
+          ./gradlew assembleDebug --stacktrace
+
+      # 8. Subir el APK como artefacto descargable
+      - name: Subir APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: WAKEUP-v6-debug
+          path: android/app/build/outputs/apk/debug/app-debug.apk
+          retention-days: 30
+
+      # 9. Mostrar info del APK generado
+      - name: Info del APK
+        run: |
+          echo "✅ APK generado exitosamente"
+          ls -lh android/app/build/outputs/apk/debug/

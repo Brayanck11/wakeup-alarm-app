@@ -1,0 +1,15 @@
+node_modules/
+.DS_Store
+dist/
+*.log
+
+# Android - solo ignorar archivos de build, NO el código fuente
+android/build/
+android/.gradle/
+android/app/build/
+android/app/release/
+*.apk
+*.aab
+
+# Capacitor
+.capacitor/

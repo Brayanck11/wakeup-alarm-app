@@ -1,0 +1,22 @@
+{
+  "appId": "com.wakeup.alarm",
+  "appName": "WAKE UP",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  },
+  "android": {
+    "buildOptions": {
+      "keystorePath": null,
+      "keystoreAlias": null
+    }
+  },
+  "plugins": {
+    "LocalNotifications": {
+      "smallIcon": "ic_stat_icon_config_sample",
+      "iconColor": "#ff2d55",
+      "sound": "beep.wav"
+    },
+    "Haptics": {}
+  }
+}

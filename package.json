@@ -1,0 +1,19 @@
+{
+  "name": "wakeup-alarm-app",
+  "version": "6.0.0",
+  "description": "WAKE UP - Alarma inteligente con retos",
+  "main": "index.js",
+  "scripts": {
+    "build": "echo 'Web app lista'",
+    "sync": "npx cap sync android"
+  },
+  "dependencies": {
+    "@capacitor/android": "^6.0.0",
+    "@capacitor/core": "^6.0.0",
+    "@capacitor/local-notifications": "^6.0.0",
+    "@capacitor/haptics": "^6.0.0"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^6.0.0"
+  }
+}
