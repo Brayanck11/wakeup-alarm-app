@@ -6,17 +6,24 @@
     "androidScheme": "https"
   },
   "android": {
-    "buildOptions": {
-      "keystorePath": null,
-      "keystoreAlias": null
-    }
+    "backgroundColor": "#070710",
+    "allowMixedContent": false,
+    "captureInput": true,
+    "webContentsDebuggingEnabled": false
   },
   "plugins": {
-    "LocalNotifications": {
-      "smallIcon": "ic_stat_icon_config_sample",
-      "iconColor": "#ff2d55",
-      "sound": "beep.wav"
+    "SplashScreen": {
+      "launchShowDuration": 2000,
+      "launchAutoHide": true,
+      "backgroundColor": "#070710",
+      "androidSplashResourceName": "splash",
+      "showSpinner": false,
+      "splashFullScreen": true,
+      "splashImmersive": true
     },
-    "Haptics": {}
+    "Keyboard": {
+      "resize": "body",
+      "style": "dark"
+    }
   }
 }
